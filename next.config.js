@@ -6,10 +6,7 @@ const experiments = {
   '/': 'next-test',
 };
 
-const botExp = new RegExp(
-  crawlers.map((crawler) => crawler.pattern).join('|'),
-  'i',
-).toString();
+const botExp = crawlers.map((crawler) => crawler.pattern).slice(0, 100).join('|')
 
 module.exports = {
   async rewrites() {
